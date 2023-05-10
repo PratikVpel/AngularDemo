@@ -1,0 +1,124 @@
+<form class="" [formGroup]="contactForm" (ngSubmit)="addContact()">
+    <div>
+    <div class="form-group">
+        <label >Choose a Event</label>
+        <p-dropdown [options]="events" name="event" formControlName="eventSelect" style="font-size: large;"></p-dropdown>
+        <div *ngIf="contactForm.controls['eventSelect'].dirty && contactForm.controls['eventSelect'].touched">
+             <div *ngIf="contactForm.controls['eventSelect'].hasError('eventChoice')" style="color: red;">
+                        Choose valid Option
+            </div>
+
+        </div>
+
+    </div>
+    <div class="form-group">
+                <label>Participant Name</label>
+                <input type="text" pInputText name="participantName" class="form-control"
+                    formControlName="participantName">
+                <div
+                    *ngIf="contactForm.controls['participantName'].hasError('required') && contactForm.controls['participantName'].touched" class="alert alert-danger" style="color: red;">
+                    Please Enter the participant Name
+                </div>
+                <div
+                    *ngIf="contactForm.controls['participantName'].hasError('minlength') && contactForm.controls['participantName'].touched" class="alert alert-danger" style="color: red;">
+                    Minimum charcaters is 5
+                </div>
+                <div
+                    *ngIf="contactForm.controls['participantName'].hasError('maxlength') && contactForm.controls['participantName'].touched" class="alert alert-danger" style="color: red;">
+                    Maximum charcaters is 20
+                </div>
+
+    </div>
+
+    <div class="form-group">
+                <label>Address</label>
+                <textarea pInputText name="participantName" class="form-control" formControlName="address"></textarea>
+                <div
+                    *ngIf="contactForm.controls['address'].hasError('required') && contactForm.controls['address'].touched" class="alert alert-danger" style="color: red;">
+                    Please Enter proper address
+                </div>
+                <div
+                    *ngIf="contactForm.controls['address'].hasError('minlength') && contactForm.controls['address'].touched" class="alert alert-danger" style="color: red;">
+                    Minimum charcaters is 5
+                </div>
+                <div
+                    *ngIf="contactForm.controls['address'].hasError('maxlength') && contactForm.controls['address'].touched" class="alert alert-danger" style="color: red;">
+                    Maximum charcaters is 100
+                </div>
+    </div>
+
+    <div class="form-group">
+                <label>Email</label>
+                <input type="text" pInputText name="email" class="form-control" formControlName="email">
+                <div
+                    *ngIf="contactForm.controls['email'].hasError('required') && contactForm.controls['email'].touched" class="alert alert-danger" style="color: red;">
+                    Please Enter the proper email
+                </div>
+                <div *ngIf="contactForm.controls['email'].hasError('pattern') && contactForm.controls['email'].touched" class="alert alert-danger" style="color: red;">
+                    Your email Id is not pattern
+                </div>
+
+    </div>
+
+    <div class="form-group">
+                <label>Contact No</label>
+                <input type="text" pInputText name="contactNo" class="form-control" formControlName="contactNo">
+                <div
+                    *ngIf="contactForm.controls['contactNo'].hasError('required') && contactForm.controls['contactNo'].touched" class="alert alert-danger" style="color: red;">
+                    Please Enter contact number
+                </div>
+                <div *ngIf="contactForm.controls['contactNo'].hasError('pattern')" class="alert alert-danger" style="color: red;">
+                    <div *ngIf="contactForm.controls['contactNo'].hasError('minlength')">
+                        Mobile digits should have 10 digit
+                    </div>
+                    <div *ngIf="contactForm.controls['contactNo'].hasError('maxlength')">
+                        Mobile digits should have 10 digit
+                    </div>
+
+     </div>
+
+      </div>
+            <div class="form-group">
+                <label>Event Date</label>
+                <input type="date" pInputDate name="eventDate" class="form-control" formControlName="eventDate" appEventform >
+                
+                <div
+                    *ngIf="contactForm.controls['eventDate'].hasError('required') && contactForm.controls['eventDate'].touched" class="alert alert-danger" style="color: red;">
+                    Please Enter the Event Date
+                </div>
+                <div
+                *ngIf="contactForm.controls['eventDate'].hasError('appEventform') && contactForm.controls['eventDate'].touched" class="alert alert-danger" style="color: red;">
+                Please Enter The Future Date
+            </div>
+                
+                
+       </div>
+
+       <div class="form-group">
+                <label>Select gender</label>&nbsp;&nbsp;&nbsp;
+                <p-radioButton name="gender" value="Male" formControlName="gender" id="Male"></p-radioButton>
+                <label for="Male">Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <p-radioButton name="gender" value="Female" formControlName="gender" id="Female"></p-radioButton>
+                <label for="Female">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div
+                    *ngIf="contactForm.controls['gender'].hasError('required') && contactForm.controls['gender'].touched" class="alert alert-danger" style="color: red;">
+                    Select any one
+                </div>
+
+       </div>
+
+        <div class="form-group">
+                <label>Interested in receiving newsletters?</label>
+                Yes
+                <p-checkbox value="True" formControlName="newsLetter" ></p-checkbox>
+                No
+                <p-checkbox value="False" formControlName="newsLetter" >No</p-checkbox>
+        </div>
+
+        <div class="form-group">
+                <button pButton type="submit" label="Submit" style="font-size: large;" [disabled]="contactForm.invalid"></button>&nbsp;&nbsp;
+                <button pButton type="reset" label="Reset" style="font-size: large;"></button>&nbsp;&nbsp;
+
+        </div>
+    </div> 
+</form>

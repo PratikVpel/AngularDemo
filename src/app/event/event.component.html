@@ -1,0 +1,92 @@
+<form class="" #contactForm="ngForm" (ngSubmit)="addContact()"> <!-- class = col-md-offset-3 col-md-6-->
+  <div class="form-group">
+    <label>Choose your Event</label>
+    <select name="event" class="form-control" [(ngModel)]="events.events" required #event="ngModel">
+      <option value="" disabled selected>--Choose An Event--</option>
+      <option [value]="event" *ngFor="let event of Events">{{event}} </option>
+
+    </select>
+    <!-- <input type="text" name="chooseevent" class="form-control" [(ngModel)]="contactModel.chooseEvent" required  #chooseEvent="ngModel"> -->
+    <div *ngIf="event.touched && event.invalid" class="alert alert-danger" required="required" style="color: red;">
+      Choosing Event is mandatory
+    </div>
+  </div>
+
+  <div class="form-group">
+
+    <label for="name" class="control-label">Participant Name</label>
+    <input type="text" name="name" class="form-control" placeholder="Participant Name"
+      [(ngModel)]="events.participantName" required minlength="5" maxlength="30" #participantName="ngModel">
+    <div *ngIf="participantName.touched && participantName.invalid" class="alert alert-danger">
+      <div *ngIf="participantName.errors?.['required']" style="color: red;">
+        invalid Name
+      </div>
+      <div *ngIf="participantName.errors?.['minlength']" style="color: red;">
+        Mininum 5 characters
+      </div>
+      <div *ngIf="participantName.errors?.['maxlength']" style="color: red;">
+        Maximum 30 characters
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="address" class="control-label">Address</label>
+    <textarea name="address" placeholder="Address" class="form-control" [(ngModel)]="events.address" required
+      #address="ngModel">
+    </textarea>
+    <div *ngIf="address.touched && address.invalid" class="alert alert-danger" style="color: red;">
+      Enter address it's mandatory
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email" class="control-label">Email</label>
+    <input type="email" name="email" class="form-control" placeholder="name@example.com" [(ngModel)]="events.email"
+      required #email="ngModel">
+    <div *ngIf="email.touched && email.invalid" class="alert alert-danger" style="color: red;">
+      Enter Email it is mandatory
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="contact" class="control-label">Contact No</label>
+    <input type="tel" name="contactno" placeholder="+91-1234567890" class="form-control" [(ngModel)]="events.contactNo"
+      pattern="^[+]{1}[9]{1}[1]{1}[0-9]{10}$" required #contactNo="ngModel">
+    <div *ngIf="contactNo.touched && contactNo.invalid" class="alert alert-danger" style="color: red;">
+      Enter valid 10 digit along with +91 mobile number
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="date" class="control-label">Event Date</label>
+    <input type="date" name="eventdate" class="form-control" [(ngModel)]="events.eventDate" #eventdate="ngModel"
+      required appEvent />
+    <div *ngIf="(eventdate.touched && eventdate.invalid)" class="alert alert-danger">
+      <div *ngIf="eventdate.errors?.['required']" style="color: red;">
+        Event Date is Mandatory
+      </div>
+      <div *ngIf="eventdate.errors?.['appEvent']" style="color: red;">
+        Please enter future date
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="gender" class="control-label">Gender</label>
+    <input type="radio" name="gender" value="Male" [(ngModel)]="events.gender" required #gender="ngModel"
+      style="margin-left: 80px;">Male
+    <input type="radio" name="gender" value="Female" [(ngModel)]="events.gender" required #gender="ngModel"
+      style="margin-left: 25px;">Female
+    <div *ngIf="gender.dirty && gender.invalid" class="alert alert-danger" style="color: red;">
+      Gender required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="news" class="control-label">Interested in receiving newsletters?</label>
+    <input type="checkbox" class="alert alert-danger" required="required">
+  </div>
+
+  <div class="form-group">
+    <button type="submit" name="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Add Contact</button>
+    <button type="reset" name="reset" class="btn btn-dark">Reset</button>
+  </div>
+
+</form>

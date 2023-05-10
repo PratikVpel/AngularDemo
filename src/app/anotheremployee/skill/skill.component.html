@@ -1,0 +1,19 @@
+<h2>Employee Skills Details</h2>
+
+
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>Skill Description</th>
+      <th>Skill Type</th>
+      <th>Years of Experience</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor= "let ski of skills | skill : employeeId">
+      <td>{{ski.skillDesc}}</td>
+      <td>{{ski.skillType}}</td>
+      <td>{{ski.yearOfExperience}}</td>
+    </tr>
+  </tbody>
+</table>

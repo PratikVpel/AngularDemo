@@ -1,0 +1,51 @@
+<table>
+    <th>
+        <h1>One way Binding</h1>
+        <p>My Intro</p>
+        <p>Name : {{personName}}</p>
+        <img alt="alternate" [src]="photoPath">
+        <p>Company Name : {{companyName}}</p>
+    </th>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <th>
+        <h1>Two way Binding</h1>
+        <table>
+
+            <tr>
+                <th> Name
+                    <input type="text" name="name" [(ngModel)]="name">
+                <th>
+                    Age
+                    <input type="number" name="age" [(ngModel)]="age">
+                </th>
+                <th>
+                    Email ID
+                    <input type="text" name="email" [(ngModel)]="email">
+                </th>
+
+            </tr>
+
+            <tr class="output">
+                <td>
+                   <a> Name:{{name}}</a>
+                </td>
+                <td>
+                  <a>  Age: {{age}}</a>
+                   
+                </td>
+                <td>
+                   <a> Email ID: {{email}}</a>
+                    
+                </td>
+            </tr>
+        </table>
+
+
+
+
+    </th>
+</table>

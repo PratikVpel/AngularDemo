@@ -1,0 +1,88 @@
+
+<!--
+Choose Category:
+    <select [(ngModel)] = "selectedCategory">
+    <option value="stationary">stationary</option>
+    <option value="beverages">beverages</option>
+    </select>  
+
+<table>
+    <tr>
+        <th>Product code</th>
+        <th>Product Description</th>
+        <th>Unit price</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Manufacturer</th>
+    </tr>
+    
+    <ng-container *ngFor ="let Secondproduct of productArray" >
+        <tr *ngIf = "Secondproduct.category == selectedCategory" >   
+            <td>{{Secondproduct.productCode}}</td>
+            <td>{{Secondproduct.productDescription}}</td>
+            <td>{{Secondproduct.unitPrice}}</td>
+            <td>{{Secondproduct.quantity}}</td>
+            <td>{{Secondproduct.category}}</td>
+            <td>{{Secondproduct.manufacturer}}</td>
+        </tr>
+    </ng-container>
+    
+</table> 
+-->
+
+<!--
+<p-dropdown
+  [(ngModel)] = "selectedCategory"
+  [options]="options"
+  placeholder="Select a category"
+  optionLabel="name"
+  [showClear]="true">
+
+--> 
+
+
+Choose Category:
+    <select [(ngModel)] = "selectedCategory">
+    <option value="stationary">stationary</option>
+    <option value="beverages">beverages</option>
+    </select>
+
+
+<p-table [value]="productArray" responsiveLayout="scroll">
+    
+    <ng-template pTemplate="header">
+        <tr>
+             <th>Product code</th>
+             <th>Product Description</th>
+             <th>Unit price</th>
+             <th>Quantity</th>
+             <th>Category</th>
+             <th>Manufacturer</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-Secondproduct>
+        <tr *ngIf = "Secondproduct.category == selectedCategory" >
+            <td>{{Secondproduct.productCode}}</td>
+            <td>{{Secondproduct.productDescription}}</td>
+            <td>{{Secondproduct.unitPrice}}</td>
+            <td>{{Secondproduct.quantity}}</td>
+            <td>{{Secondproduct.category}}</td>
+            <td>{{Secondproduct.manufacturer}}</td>
+        </tr>
+    </ng-template>
+</p-table>  
+
+
+<!--
+</p-dropdown>
+<p-dropdown [options]="options" [(ngModel)]="selectedCategory" optionLabel="name"  [showClear]="true" >
+    <ng-template let-Secondproduct pTemplate="selectedItem">
+        <div   *ngIf="Secondproduct.category == selectedCategory">
+           
+            <div>{{Secondproduct.category}}</div>
+        </div>
+    </ng-template>
+    
+</p-dropdown>
+-->
+
