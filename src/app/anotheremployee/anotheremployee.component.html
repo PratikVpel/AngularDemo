@@ -1,0 +1,60 @@
+<p-table [value]="employeeArray">
+    <ng-template pTemplate="header">
+   <p-dropdown [options]="selectedEmployee" [(ngModel)]="employees" name="emplyoeeId"></p-dropdown>
+        <tr>
+            <th>Employee Name</th>
+            <th>Join Date</th>
+            <th>Designation </th>
+            <th>Location</th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-emp>
+        <tr *ngIf="emp.employeeId==employees">
+            <!-- <td>{{emp.employeeId}}</td> -->
+            <td>{{emp.employeeName}}</td>
+            <td>{{emp.joindate}}</td>
+            <td>{{emp.designation}}</td>
+            <td>{{emp.location}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+<div>
+    <br/>
+    <br/>
+</div>
+
+
+<div>
+    <button class="btn btn-primary mx-3" (click)="onSkillSelect()">View Skill</button>
+    <button class="btn btn-primary mx-3" (click)="onHistorySelect()">View History</button>
+</div>
+
+<br/>
+<br/>
+
+<!-- [hidden]="button1" -->
+<!-- *ngIf="!button1 -->
+
+<div *ngIf="button1 == true || button2 == true " class="row" >
+    <div  class="col-xs-12">
+      
+        <app-skill *ngIf="button1 == true" [employeeId]="employees"></app-skill>
+
+        <app-projecthistory *ngIf="button2 == true"  [employeeId]="employees"></app-projecthistory>
+  
+    </div>
+</div>
+
+
+
+<!-- <div *ngIf="button2==true" class="row" >
+    <div class="col-xs-12">
+        <app-projecthistory [employeeId]="employees"></app-projecthistory>
+    </div>
+</div>  -->
+
+
+
+

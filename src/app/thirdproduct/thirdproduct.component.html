@@ -1,0 +1,29 @@
+<div>
+    Minimum price <input type="text" pInputText [(ngModel)]="minValue"/>
+    Maximum price<input type="text" pInputText [(ngModel)]="maxValue"/>
+
+
+    <table class="table table-striped">
+    
+        <tr>
+            <th>Product code</th>
+            <th>Product Description</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Manufacturer</th>
+        </tr>
+        
+        <ng-container *ngFor = "let thirdproduct of productArray | productpipe : minValue : maxValue" >
+            <tr>
+                <td>{{thirdproduct.productCode}}</td>
+                <td>{{thirdproduct.productDescription}}</td>
+                <td>{{thirdproduct.unitPrice}}</td>
+                <td>{{thirdproduct.quantity}}</td>
+                <td>{{thirdproduct.category}}</td>
+                <td>{{thirdproduct.manufacturer}}</td>
+            </tr>
+        </ng-container>
+        
+    </table>
+</div> 

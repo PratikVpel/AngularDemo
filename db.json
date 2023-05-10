@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "firstName": "Pratik",
+      "lastName": "Pingale",
+      "email": "pratikpingale2001@gmail.com",
+      "mobile": "8983282508",
+      "salary": "30k"
+    },
+    {
+      "id": 2,
+      "firstName": "rahul",
+      "lastName": "P",
+      "email": "rahulp@gmail.com",
+      "mobile": "3945293929",
+      "salary": "234322"
+    },
+    {
+      "id": 3,
+      "firstName": "Aman",
+      "lastName": "Sapare",
+      "email": "amansapare@gmail.com",
+      "mobile": "4536786767",
+      "salary": "5000000"
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,25 @@
+
+<p-table [value]="employees" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Employee Id</th>
+            <th>EmployeeName</th>
+            <th>Salary</th>
+            <th>JoiningDate</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Grading</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-employee>
+        <tr>
+            <td>{{employee.employeeId| uppercase}}</td>
+            <td>{{employee.fullName()|titlecase}}</td>
+            <td>{{employee.salary|currency:'INR':'symbol':'1.2-2'}}</td>
+            <td>{{employee.joiningDate| date:'dd-MM-yyyy'}}</td>
+            <td>{{employee.department|lowercase}}</td>
+            <td>{{employee.designation|titlecase}}</td>
+            <td>{{employee.grading|number:'1.1-2'}}</td>
+        </tr>
+    </ng-template>
+</p-table>  
